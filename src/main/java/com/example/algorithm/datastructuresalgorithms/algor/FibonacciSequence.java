@@ -43,7 +43,7 @@ public class FibonacciSequence {
 
     public static void main(String[] args) {
 
-        System.out.println(fibonacciSequence1(6));
+        System.out.println(fibonacciSequence2(123));
     }
 
     public static int fibonacciSequence1(int n){
@@ -51,5 +51,26 @@ public class FibonacciSequence {
             return n;
         }
         return fibonacciSequence1(n-1)+fibonacciSequence1(n-2);
+    }
+
+    /**
+     * 循环次数 n-1
+     * @param n
+     * @return
+     */
+    public static int fibonacciSequence2(int n){
+        if (n<=1){
+            return n;
+        }
+        int first=0;
+        int second=1;
+        int index=1;
+        while (n>index){
+            int sum=first+second;
+            first=second;
+            second=sum;
+            index++;
+        }
+        return second;
     }
 }
