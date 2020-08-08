@@ -42,10 +42,42 @@ public class ImplementStr {
         }
         return -1;
     }
+    public static int Str2(String haystack, String needle){
+        if (needle==null||needle.equals("")||haystack.equals(needle)){
+            return 0;
+        }
+        int n = needle.length(), h = haystack.length();
+        String[] haystackSplit = haystack.split("");
+        String[] needleSplit = needle.split("");
 
+        for (int i = 0; i < h-1; i++) {
+            if (haystackSplit[i].equals(needleSplit[0])){
+                if (i+n<=h){
+                    String tmp = "";
+                    for (int j = i; j <i+n ; j++) {
+                        tmp=tmp+haystackSplit[j];
+                    }
+                    if (tmp.equals(needle)){
+                        return i;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    public int strStr3(String haystack, String needle) {
+        if (needle.length() == 0) return 0;
+        if (needle.equals(haystack)) return 0;
+        if (needle.length() > haystack.length()) return -1;
+        for (int i=0; i<=haystack.length()-needle.length(); i++){
+            if (haystack.substring(i, i+needle.length()).equals(needle)) return i;
+        }
+        return -1;
+    }
 
     public static void main(String[] args) {
-        int i = strStr("hello", "ll");
+        int i = Str2("mississippi", "pi");
         System.out.println(i);
     }
 
