@@ -7,6 +7,6 @@
  * 3、 不同的排序规则类实现比较器
  * 4、 客户端测试的时候new 比较器的实现，来实现不同动物，不同规则比较大小
  *
- * @Date: 2020/9/3 下午2:39
+ * @Date: 2020/9/3 下午2:39K
  */
 package com.example.algorithm.designPatterns.strategy;
