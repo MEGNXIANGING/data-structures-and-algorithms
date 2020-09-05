@@ -1,4 +1,4 @@
-package com.example.algorithm.datastructuresalgorithms.algor.leetcode.stack;
+package com.example.algorithm.datastructuresalgorithms.leetcode.stack;
 
 import java.util.Stack;
 

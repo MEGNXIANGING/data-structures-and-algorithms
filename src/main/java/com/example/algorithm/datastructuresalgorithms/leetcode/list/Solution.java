@@ -1,4 +1,4 @@
-package com.example.algorithm.datastructuresalgorithms.algor.leetcode.list;
+package com.example.algorithm.datastructuresalgorithms.leetcode.list;
 
 /**
  * Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.

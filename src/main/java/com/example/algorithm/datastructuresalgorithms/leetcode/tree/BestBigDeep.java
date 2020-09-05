@@ -1,4 +1,4 @@
-package com.example.algorithm.datastructuresalgorithms.algor.leetcode.tree;
+package com.example.algorithm.datastructuresalgorithms.leetcode.tree;
 
 /**
  * @Author: apple

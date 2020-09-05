@@ -1,4 +1,4 @@
-package com.example.algorithm.datastructuresalgorithms.algor.leetcode.problems;
+package com.example.algorithm.datastructuresalgorithms.leetcode.problems;
 
 import java.util.HashSet;
 import java.util.Set;

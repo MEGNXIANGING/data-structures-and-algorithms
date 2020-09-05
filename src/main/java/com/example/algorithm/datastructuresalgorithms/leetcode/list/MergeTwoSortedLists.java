@@ -1,4 +1,4 @@
-package com.example.algorithm.datastructuresalgorithms.algor.leetcode.list;
+package com.example.algorithm.datastructuresalgorithms.leetcode.list;
 
 
 import java.util.ArrayList;
