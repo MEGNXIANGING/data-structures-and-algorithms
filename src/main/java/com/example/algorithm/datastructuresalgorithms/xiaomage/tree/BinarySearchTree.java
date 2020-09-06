@@ -7,9 +7,8 @@ import java.util.*;
  * @Description:
  * @Date: 2020/9/4 下午9:20
  */
-public class BinarySearchTree<E> {
-    private int size;
-    private Node root;
+public class BinarySearchTree<E>  extends BinaryTree<E>{
+
     private Comparator<E> comparator;
 
     public BinarySearchTree(Comparator<E> comparator) {
@@ -19,23 +18,13 @@ public class BinarySearchTree<E> {
     public BinarySearchTree() {
     }
 
-    public int size() {
-        return size;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    public void clear() {
-        size = 0;
-    }
 
     public void add(E element) {
         elementNoNullCheck(element);
         if (root == null) {
             root = new Node<>(element, null);
             size++;
+            afterAdd(root);
             return;
         }
         //find parent node
@@ -54,25 +43,76 @@ public class BinarySearchTree<E> {
             }
         }
         //insert data
-        Node<E> n = new Node<>(element, parent);
+            Node<E> n = new Node<E>(element, parent);
         if (cmp > 0) {
             parent.right = n;
         } else {
             parent.left = n;
         }
         size++;
+        afterAdd(n);
     }
 
+    /**
+     * 叶子节点：直接断开parent
+     * 度为一的节点：child.parent=node.parent
+     * 度为2的节点  使用前驱或者后继节点
+     * @param element
+     */
     public void remove(E element) {
-
+        Node node = getNode(element);
+        if (node==null) return;
+        //度为2
+        if (node.left!=null && node.right!=null){
+            Node s = subsequent(node);
+            //覆盖
+            node.element=s.element;
+            //删除节点
+            node=s;
+        }
+        Node replace=node.left!=null?node.left:node.right;
+        if (replace!=null){
+            //度为1
+            replace.parent=node.parent;
+            if (node.parent==null){
+                //根节点
+                root=replace;
+            }else if (node.parent.left==node){
+                node.parent.left=replace;
+            }else if (node.parent.right==node){
+                node.parent.right=replace;
+            }
+        }else if (node.parent==null){
+            //root节点
+            root=null;
+        }else {
+            //叶子
+            if (node.parent.right!=null){
+                node.parent.right=null;
+            }else {
+                node.parent.left=null;
+            }
+        }
+        size--;
     }
 
     public boolean contains(E element) {
-        return false;
+        return getNode(element)!=null;
     }
 
     public int height() {
         return height(root);
+    }
+
+    private Node getNode(E element){
+        Node<E> node=root;
+        while (node!=null){
+            int compare = compare(element, node.element);
+            if (compare==0)return node;
+            if (compare>0) node=node.right;
+            if (compare<0) node=node.left;
+        }
+        return null;
     }
 
     public int height(Node node) {
@@ -80,25 +120,29 @@ public class BinarySearchTree<E> {
         return 1 + Math.max(height(node.left), height(node.right));
     }
 
+    /**
+     * count 表示当前层的节点数量
+     * @param node
+     * @return
+     */
     public int heightLevel(Node node){
         if (node == null) return 0;
         Queue<Node> queue = new LinkedList<>();
         queue.offer(node);
         int height=0;
-        int levelSize=1;
         while (!queue.isEmpty()){
-            Node poll = queue.poll();
-            levelSize--;
-            if (poll.left!=null){
-                queue.offer(poll.left);
+            int count=queue.size();
+            while (count>0){
+                Node poll = queue.poll();
+                if (poll.left!=null){
+                    queue.offer(poll.left);
+                }
+                if (poll.right!=null){
+                    queue.offer(poll.right);
+                }
+                count--;
             }
-            if (poll.right!=null){
-                queue.offer(poll.right);
-            }
-            if (levelSize==0){
-                levelSize=queue.size();
-                height++;
-            }
+            height++;
         }
         return height;
     }
@@ -158,6 +202,8 @@ public class BinarySearchTree<E> {
 
     }
 
+
+
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
@@ -178,16 +224,6 @@ public class BinarySearchTree<E> {
         }
     }
 
-    private class Node<E> {
-        private E element;
-        private Node<E> left;
-        private Node<E> right;
-        private Node<E> parent;
 
-        public Node(E element, Node parent) {
-            this.element = element;
-            this.parent = parent;
-        }
-    }
 
 }
