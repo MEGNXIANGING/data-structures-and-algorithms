@@ -31,6 +31,10 @@ public abstract class BinaryTree<E> {
 
     }
 
+    protected  Node<E> creatNode(E element ,Node parent){
+        return new Node(element,parent);
+    }
+
     public Node precursor(Node node){
         if (node==null) return null;
         if (node.left!=null){
@@ -69,6 +73,9 @@ public abstract class BinaryTree<E> {
         public Node(E element, Node<E> parent) {
             this.element = element;
             this.parent = parent;
+        }
+        public boolean isLeftChild(){
+            return parent!=null && this==parent.left;
         }
 
         @Override

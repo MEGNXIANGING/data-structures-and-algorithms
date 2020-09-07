@@ -69,6 +69,7 @@ public class BinarySearchTree<E>  extends BinaryTree<E>{
             node.element=s.element;
             //删除节点
             node=s;
+            afterRemove(node);
         }
         Node replace=node.left!=null?node.left:node.right;
         if (replace!=null){
@@ -77,11 +78,14 @@ public class BinarySearchTree<E>  extends BinaryTree<E>{
             if (node.parent==null){
                 //根节点
                 root=replace;
+                afterRemove(root);
+
             }else if (node.parent.left==node){
                 node.parent.left=replace;
             }else if (node.parent.right==node){
                 node.parent.right=replace;
             }
+            afterRemove(node);
         }else if (node.parent==null){
             //root节点
             root=null;
@@ -92,8 +96,13 @@ public class BinarySearchTree<E>  extends BinaryTree<E>{
             }else {
                 node.parent.left=null;
             }
+            afterRemove(node);
         }
         size--;
+
+    }
+
+    protected void afterRemove(Node node) {
     }
 
     public boolean contains(E element) {
