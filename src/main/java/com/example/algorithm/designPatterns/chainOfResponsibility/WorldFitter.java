@@ -1,4 +1,4 @@
-package com.example.algorithm.designPatterns.chainOfResonsibility;
+package com.example.algorithm.designPatterns.chainOfResponsibility;
 
 /**
  * @Author: apple

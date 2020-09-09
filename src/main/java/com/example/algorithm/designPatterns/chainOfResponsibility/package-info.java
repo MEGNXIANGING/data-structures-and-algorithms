@@ -9,4 +9,4 @@
  *      可以实现fitter接口  方便两条责任链add
  * @Date: 2020/9/4 下午1:37
  */
-package com.example.algorithm.designPatterns.chainOfResonsibility;
+package com.example.algorithm.designPatterns.chainOfResponsibility;
