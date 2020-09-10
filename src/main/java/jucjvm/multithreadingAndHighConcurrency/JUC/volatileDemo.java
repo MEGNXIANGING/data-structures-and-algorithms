@@ -1,4 +1,4 @@
-package jucjvm.multithreadingAndHighConcurrency.volatileModel;
+package jucjvm.multithreadingAndHighConcurrency.JUC;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
