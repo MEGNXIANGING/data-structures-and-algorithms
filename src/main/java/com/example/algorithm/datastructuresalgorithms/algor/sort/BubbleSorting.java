@@ -13,6 +13,7 @@ public class BubbleSorting {
         sort(arr);
         System.out.println(dichotomy(arr,7));
         System.out.println(Arrays.toString(arr));
+        System.out.println(0&1);
     }
 
     /**

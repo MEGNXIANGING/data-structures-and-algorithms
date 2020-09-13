@@ -41,6 +41,11 @@
 ### lock锁
     java类的api 通过reentrantLock 可以创建boolean类型的公平或者非公平锁，公平锁由于要通过队列保证顺序，所以会消耗性能，
     可以通过ReentrantReadWriteLock 来设置读写锁还有其他粒度更小的锁，可中断，可以通过condition精确唤醒
+    阻塞式加锁（lock） 一直去加锁，直到加上为止
+    中断式加锁（lockInterruptibly）  一直去加锁，但是加锁过程可以中断
+    尝试性加锁（tryLock） 尝试去加锁，加不上返回false
+    非公平锁：会造成线程饥饿，导致请求超时，在mq的设计中需要注意
+    
     
 ### Synchronized
     java关键字属于jvm依赖monitor，可以锁class，锁对象与锁代码块，不需要手动释放，是重锁
