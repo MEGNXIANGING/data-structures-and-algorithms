@@ -23,4 +23,24 @@ public class NoSafe {
             }).start();
         }
     }
+
+    public int coinChange(int[] coins, int m) {
+        int f[]=new int[m+1];
+        int n =coins.length;
+        f[0]=0;
+        for(int i=1;i<m;i++){
+            f[i]=Integer.MAX_VALUE;
+            for(int j=1;j<=n;j++){
+                if(i-coins[j]>0 && f[i-coins[j]]!=Integer.MAX_VALUE){
+                    f[i]=Math.min(f[i-coins[j]]+1,f[i]);
+                }
+            }
+        }
+        if(f[m]==Integer.MAX_VALUE){
+            return -1;
+        }
+        return f[m];
+    }
+
+
 }

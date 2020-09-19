@@ -1,6 +1,9 @@
 package com.example.algorithm.datastructuresalgorithms.xiaomage.tree;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @Author: apple
@@ -8,12 +11,16 @@ import java.util.*;
  * @Date: 2020/9/4 下午10:58
  */
 public class Main {
-    public static void main(String[] args) {
 
-        int[] nums1 = new int[]{1, 2, 2, 1};
-        int[] nums2 = new int[]{2, 2};
-        int[] intersection = intersection1(nums1, nums2);
-        System.out.println(Arrays.toString(intersection));
+
+    public static void change(char[] value) {
+        value = "Welcome".toCharArray();
+    }
+
+    public static void main(String[] args) {
+        int a = 9;
+        int b = 7;
+        System.out.println(9 | 7);
     }
 
     public static int[] intersection(int[] nums1, int[] nums2) {
@@ -111,3 +118,21 @@ public class Main {
     }
 
 }
+
+class B {
+    public int f(int i) {
+        return i + i;
+    }
+
+    public int f(int i, int j) {
+        return i + j;
+    }
+
+    public int f(char c) {
+        return c;
+    }
+}
+
+
+
+
