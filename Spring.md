@@ -5,3 +5,6 @@
     4、实现aware接口，调用实现的方法
     5、初始化，实现了InitializingBean，设置其属性
     6、如果是单例的bean的话，放入单例池中
+    
+### springboot 自动装配
+    通过@importSelector自动装配类的bean定义
