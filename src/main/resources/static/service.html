@@ -1,0 +1,18 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</head>
+<body ng-app ng-init="name1='kobe'">
+    <div ng-controller="MyController">
+        <input type="text" ng-model="name1" >
+        <input type="text" ng-model="name2" ng-init="bbb">
+        <p>姓名1  {{name1}}</p>
+        <p>姓名2  {{name2}}</p>
+    </div>
+    function MyController($scope){
+
+    }
+
+</body>
+</html>
