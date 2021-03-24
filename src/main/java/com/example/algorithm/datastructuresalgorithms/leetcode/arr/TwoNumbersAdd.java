@@ -9,33 +9,25 @@ package com.example.algorithm.datastructuresalgorithms.leetcode.arr;
  */
 public class TwoNumbersAdd {
     public static void main(String[] args) {
-        System.out.println(13 % 10);
+       int t=1;
+       t+=3;
+        System.out.println(15%10);
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if (l1 == null && l2 == null) {
-            return null;
-        }
-        ListNode dummy = new ListNode(0);
-        ListNode head = dummy;
-
-        int addOne = 0;
-        while (l1 != null || l2 != null || addOne != 0) {
-            int val1 = l1 == null ? 0 : l1.val;
-            int val2 = l2 == null ? 0 : l2.val;
-            int sum = val1 + val2 + addOne;
-            head.next = new ListNode(sum % 10);
-            head = head.next;
-            addOne = sum / 10;
-            if (l1 != null) {
-                l1 = l1.next;
+        ListNode dump = new ListNode(-1),curr=dump;
+        int t=0;
+        while (l1!=null || l2!=null || t!=0){
+            if (l1!=null){
+                t+=l1.val; l1=l1.next;
             }
-            if (l2 != null) {
-                l2 = l2.next;
+            if (l2!=null){
+                t+=l2.val;l2=l2.next;
             }
-
+            curr= curr.next=new ListNode(t%10);
+            t=t/10;
         }
-        return dummy.next;
+        return dump.next;
     }
 
 
