@@ -25,19 +25,34 @@ public class Solution {
         return sum;
     }
 
-    public int kthToLast(ListNode head, int k) {
-        ListNode slow = head, fast = head;
-        while (k >= 0) {
-            fast=fast.next;
+    public static int removeElement(int[] nums, int val) {
+        int index=0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i]!=val){
+                nums[index]=nums[i];
+                index++;
+            }
         }
-        while (fast!=null){
-            slow=slow.next;
-            fast=fast.next;
-        }
-        return slow.val;
+        return index;
     }
 
+    public static int findMaxConsecutiveOnes(int[] nums) {
+        int max=0;
+        int count=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==1){
+                count++;
+            }else{
+                max=Math.max(max,count);
+                count=0;
+            }
+        }
+        return Math.max(max,count);
+    }
+
+
     public static void main(String[] args) {
-        System.out.println("hello world");
+        int[] nums= {0,1,2,2,3,0,4,2};
+        System.out.println(removeElement(nums,2));
     }
 }

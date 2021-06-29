@@ -36,4 +36,22 @@ public class RemoveLinkedListElements {
         //head=初始节点的next域
         return sentinel.next;
     }
+
+    public ListNode removeElements1(ListNode head, int val) {
+        //初始节点
+        ListNode newHead=new ListNode(0);
+        newHead.next=head;
+        ListNode pre=newHead,cure=head;
+        while (cure!=null){
+            if (cure.val==val){
+                pre.next=cure.next;
+            }else {
+                pre=cure;
+            }
+            cure=cure.next;
+        }
+        return newHead.next;
+    }
+
+
 }
