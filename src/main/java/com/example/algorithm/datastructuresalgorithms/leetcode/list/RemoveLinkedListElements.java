@@ -54,4 +54,19 @@ public class RemoveLinkedListElements {
     }
 
 
+    public ListNode removeElements2(ListNode head, int val) {
+        ListNode dummy = new ListNode(0);
+        dummy.next=head;
+        ListNode pre=dummy;
+        while (head!=null){
+            if (head.val==val){
+                pre.next=head.next;
+            }else {
+                pre=pre.next;
+            }
+            head=head.next;
+        }
+        return dummy.next;
+    }
+
 }

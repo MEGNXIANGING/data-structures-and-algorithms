@@ -9,7 +9,7 @@ import java.util.Map;
  * @Date: 2020/2/25 上午11:26
  */
 public class FibonacciSequence {
-    private Map<Integer, Integer> result = new HashMap<>();
+
 
     //    0,1,1,2,3,5,8,13.......
     //O(2^n)  辣鸡

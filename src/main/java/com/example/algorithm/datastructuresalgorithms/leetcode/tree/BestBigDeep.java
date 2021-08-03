@@ -16,7 +16,7 @@ public class BestBigDeep {
      }
 
     public static void main(String[] args) {
-
+        System.out.println("aaa");
     }
     public int findRepeatNumber(int[] nums) {
         int[] temp=new int[nums.length];
