@@ -18,6 +18,7 @@ public class BinaryTreePreorderTraversal {
         if (node.right!=null){
             preorderTraversal(node.right,list);
         }
+
     }
 
 }
