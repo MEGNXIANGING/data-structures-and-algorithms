@@ -37,4 +37,47 @@ public class TwoSum {
         }
         return new int[]{};
     }
+
+    public int[] twoSum3(int[] nums, int target) {
+        quickSort(nums,0,nums.length-1);
+        int l=0;
+        int r=nums.length-1;
+        while (l<r){
+           int temp= nums[l]+nums[r];
+            if (temp>target){
+                r--;
+            }else if (temp<target){
+                l++;
+            }else {
+                return new int[]{l,r};
+            }
+        }
+        return new int[]{};
+    }
+
+    public void quickSort(int[] arr,int left,int right){
+        if (left>=right){
+            return;
+        }
+        int l=left;
+        int r=right;
+        int temp=arr[l];
+        while (l<r){
+            while (l<r&& arr[r]>= temp){
+                r--;
+            }
+            if (l<r){
+                arr[l]=arr[r];
+            }
+            while (l<r&& arr[l]< temp){
+                l++;
+            }
+            if (l<r){
+                arr[r]=arr[l];
+            }
+        }
+        arr[l]=temp;
+        quickSort(arr,left,l);
+        quickSort(arr,r+1,right);
+    }
 }

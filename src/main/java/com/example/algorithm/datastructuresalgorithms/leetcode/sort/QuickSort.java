@@ -3,7 +3,7 @@ package com.example.algorithm.datastructuresalgorithms.leetcode.sort;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] ints = {5,1,1,2,0,0};
+        int[] ints = {-1,1,-3,9,0,0};
         sortArray(ints);
     }
     public static int[] sortArray(int[] nums) {
@@ -27,4 +27,8 @@ public class QuickSort {
         }
 
     }
+
+
+
+
 }
