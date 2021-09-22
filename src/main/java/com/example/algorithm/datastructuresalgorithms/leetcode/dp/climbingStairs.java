@@ -43,4 +43,24 @@ public class climbingStairs {
 
         return temp;
     }
+
+
+    public int coinChange(int[] coins, int amount) {
+        int [] f=new int[amount+1];
+        //number kinds
+        int n = coins.length;
+        //init
+        f[0]=0;
+        //f[1]、f[2]、f[3]......f[27]
+        for (int i = 1; i <=amount ; i++) {
+            f[i]=Integer.MAX_VALUE;
+            //last count
+            for (int j = 0; j <n ; j++) {
+                if (i>=coins[j] && f[i-coins[j]]!=Integer.MAX_VALUE){
+                    f[i]=Math.min(f[i-coins[j]]+1,f[i]);
+                }
+            }
+        }
+       return f[amount]==Integer.MAX_VALUE?-1:f[amount];
+    }
 }
