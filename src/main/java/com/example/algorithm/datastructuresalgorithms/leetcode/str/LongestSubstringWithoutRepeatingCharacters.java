@@ -1,6 +1,7 @@
 package com.example.algorithm.datastructuresalgorithms.leetcode.str;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -38,6 +39,28 @@ public class LongestSubstringWithoutRepeatingCharacters {
             }
         }
         return 1;
+    }
+
+
+    public static int lengthOfLongestSubstring2(String s) {
+        if (s.isEmpty())return 0;
+        HashSet<Character> set = new HashSet<>();
+        int max=1;
+        int start=0;
+        int end=0;
+        while (end<s.length()){
+            char cEnd = s.charAt(end);
+            if (set.contains(cEnd)){
+                start++;
+                set.remove(s.charAt(start));
+            }else {
+                set.add(cEnd);
+                max=Math.max(max,set.size());
+                end++;
+            }
+
+        }
+        return max;
     }
 
 //    public static int lengthOfLongestSubstring1(String s) {
